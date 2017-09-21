@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('test', function() {
+    $pdf = PDF::loadView('pdf.invoice')->output();
+    return Response::make($pdf, 200, ['Content-Type' => 'application/pdf']);
+});
+
+Route::get('test2', function() {
+    $pdf = PDF::loadView('pdf.invoice2')->output();
+    return Response::make($pdf, 200, ['Content-Type' => 'application/pdf']);
+});
